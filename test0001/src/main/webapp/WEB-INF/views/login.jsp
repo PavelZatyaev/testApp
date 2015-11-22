@@ -36,6 +36,7 @@
 
 
 <script>
+// git 01
 	window.onload = function(){
 		if(document.getElementById('autoLogin')){
 			document.forms['login_form'].submit();
