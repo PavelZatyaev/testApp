@@ -9,15 +9,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><spring:message code="label.title.adm" /></title>
 
-<link href="<%=request.getContextPath()%>/resources/css/home.css"
-	rel="stylesheet" />
 <link href="<%=request.getContextPath()%>/resources/css/jquery-ui.css"
+	rel="stylesheet" />
+<link
+	href="<%=request.getContextPath()%>/resources/css/jquery-ui.structure.css"
+	rel="stylesheet" />
+<link
+	href="<%=request.getContextPath()%>/resources/css/jquery-ui.theme.css"
+	rel="stylesheet" />
+
+<link href="<%=request.getContextPath()%>/resources/css/mail.css"
 	rel="stylesheet" />
 
 <script
 	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
 	src="<%=request.getContextPath()%>/resources/js/jquery-ui.min.js"></script>
+
+<link href="<%=request.getContextPath()%>/resources/css/datatables.css"
+	rel="stylesheet" type="text/css" />
+<script
+	src="<%=request.getContextPath()%>/resources/js/datatables.min.js"></script>
 
 
 <script type="text/javascript">
@@ -59,15 +71,14 @@
 
 	};
 </script>
-
-
 </head>
 <body>
-	<a href="j_spring_security_logout"> <spring:message
-			code="label.logout" />
-	</a>
-	<br>
-	<br>
+	<p style="text-align: right">
+		<a href="j_spring_security_logout" id="button-icon"
+			class="ui-state-default ui-corner-all"><span
+			class="ui-icon ui-icon-close"></span> <spring:message
+				code="label.logout" /></a>
+	</p>
 
 	<form:form method="post" action="addUserReg" modelAttribute="user"
 		class="box users" onsubmit="checkUserName(this);return false;">
@@ -100,11 +111,16 @@
 				<form:input path="password" id="password" />
 				<form:errors path="password" cssClass="error" />
 
-				<input type="submit" class="btnLogin"
+				<input type="submit" id='button'
 					value="<spring:message code="label.adduser"/>" />
 
 			</div>
 		</fieldset>
 	</form:form>
+	<script>
+$( "#button" ).button();
+$( "#button-icon" ).button();
+</script>
+	
 </body>
 </html>

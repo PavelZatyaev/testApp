@@ -102,6 +102,7 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 
 </head>
 <body>
+
 	<p style="text-align: right">
 		<a href="j_spring_security_logout" id="button-icon"
 			class="ui-state-default ui-corner-all"><span
@@ -109,17 +110,23 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 				code="label.logout" /></a>
 	</p>
 
-
+	<p style="text-align: right">
+		<a href="j_spring_security_logout" id="button-icon"
+			class="ui-state-default ui-corner-all"><span
+			class="ui-icon ui-icon-close"></span> <spring:message
+				code="label.user_password" /></a>
+	</p>
 
 	<c:if test="${not empty IsAdmin}">
+		<br>
 		<p style="text-align: right">
 			<a href="<%=request.getContextPath()%>/admin" id="button-icon"
 				class="ui-state-default ui-corner-all"><span
-				class="ui-icon ui-icon-wrench"></span><spring:message
-				code="label.user_admin" /></a>
+				class="ui-icon ui-icon-wrench"></span>
+			<spring:message code="label.user_admin" /></a>
 		</p>
 	</c:if>
-	
+
 	<h2>
 		<spring:message code="label.title" />
 	</h2>
@@ -341,18 +348,6 @@ $( "#dialog-link" ).click(function( event ) {
 	$( "#dialog" ).dialog( "open" );
 	event.preventDefault();
 });
-$( "#datepicker" ).datepicker({
-	inline: true
-});
-$( "#slider" ).slider({
-	range: true,
-	values: [ 17, 67 ]
-});
-$( "#progressbar" ).progressbar({
-	value: 20
-});
-$( "#spinner" ).spinner();
-$( "#menu" ).menu();
 $( "#tooltip" ).tooltip();
 $( "#selectmenu" ).selectmenu();
 // Hover states on the static widgets
