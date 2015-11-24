@@ -63,6 +63,15 @@ html, div, fieldset, label	 {
 	margin: -130px 0 0 -166px;
 }
 
+.box.changePassword {
+	width: 400px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -130px 0 0 -166px;
+}
+
+
 .box footer {
 	background: #ffebcc; /*#eff4f6;*/
 	border-top: 1px solid #fff;

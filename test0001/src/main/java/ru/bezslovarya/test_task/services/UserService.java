@@ -15,6 +15,7 @@ public interface UserService {
 	public Map<Integer, String> mapUserName(String username);
 	
 	public Integer getUserID();
+	public String getUserPassword(User user);	
 	
 //	public String getUserFIO(Integer id);
 	
@@ -22,7 +23,7 @@ public interface UserService {
 	
 	public void removeUser(Integer id);
 	
-	public void addGroup(String username, Boolean isAdmin);
+//	public void addGroup(String username, Boolean isAdmin);
 	
 //	public Boolean userIsAdmin(String username);
 }

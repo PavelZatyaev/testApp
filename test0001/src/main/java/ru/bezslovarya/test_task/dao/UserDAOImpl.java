@@ -58,9 +58,19 @@ public class UserDAOImpl implements UserDAO {
 		List<User> users = sessionFactory.getCurrentSession().createQuery("from User").list();
 				
 		for(User u : users) {
-			if (u.getUsername().equals(user.getUsername()) ) return u.getId(); 
+			if (u.getUsername().equals(user.getUsername()) ) return u.getId();
 		}
 		return -1;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String passwordUser(User user) {
+		List<User> users = sessionFactory.getCurrentSession().createQuery("from User").list();
+				
+		for(User u : users) {
+			if (u.getUsername().equals(user.getUsername()) ) return u.getPassword();
+		}
+		return "";
 	}	
 	
 	@Transactional

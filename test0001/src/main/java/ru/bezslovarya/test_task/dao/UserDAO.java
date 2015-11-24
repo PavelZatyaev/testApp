@@ -13,6 +13,8 @@ public interface UserDAO {
 
 	public Map<Integer, String> mapUserName(String username);
 	
+	public String passwordUser(User user);
+	
 //	public String getUserFIO(Integer id);
 	
 	public void addUser(User user);

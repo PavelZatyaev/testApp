@@ -70,7 +70,57 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	private Boolean editAddressBook=false;
+	
+	///////////////////////////////////////////////////////////////////////////////////////////////////
+	@RequestMapping(value = "/changePassword", method = RequestMethod.GET)
+	public String changePassword(Model model) {
+		model.addAttribute("user", new User());
+		return "/content/changePassword";
+	}
+	
+	///////////////////////////////////////////////////////////////////////////////////////////////////
+	@RequestMapping(value = "/__checkOldPassword", method = RequestMethod.GET, produces = { "text/html; charset=UTF-8" })
+	public @ResponseBody String checkOldPassword(@RequestParam String password,  Integer check_password) {
+		String flow_passwd = "";
+		User user = new User();
+		List<User> users = userService.listUser();
+		UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		for (User u : users) {
+			if (u.getUsername().equals(userDetails.getUsername())) {
+				user = u;
+				flow_passwd = user.getPassword();
+				break;
+			}
+		}
+		
+		if (check_password.equals(1)) {
+			return BCrypt.checkpw(password, flow_passwd) ? "1" : flow_passwd;
+		}
+		
+		user.setPassword(BCrypt.hashpw(password, BCrypt.gensalt(11)));
+		userService.addUser(user);
+		return "1";
+	}
+	
+	
+/*	///////////////////////////////////////////////////////////////////////////////////////////////////
+	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+	public String setNewPassword(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 
+		if (result.hasErrors()) {
+			model.addAttribute("userList", listUserEx());
+			return "/content/admin";
+		}
+
+		user.setEnabled(true);
+		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(11)));
+
+		userService.addUser(user);
+
+		return "redirect:/admin";
+	}
+	
+*/
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
 	public ModelAndView accesssDenied(Principal user) {

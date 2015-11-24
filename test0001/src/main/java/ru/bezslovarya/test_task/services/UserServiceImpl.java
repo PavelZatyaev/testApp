@@ -32,6 +32,10 @@ public class UserServiceImpl implements UserService {
     public Map<Integer, String> mapUserName(String username) {
     	return userDAO.mapUserName(username);
     }
+    
+    public String getUserPassword(User user) {
+    	return userDAO.passwordUser(user);
+    }
 
     // и почему security по id не работает ???
     public Integer getUserID() {
@@ -44,7 +48,6 @@ public class UserServiceImpl implements UserService {
 		    }
 		}
 		return -1;
-    	
     } 
     
 //    public String getUserFIO(Integer id) {
@@ -74,9 +77,9 @@ public class UserServiceImpl implements UserService {
 //    	return groupMemberDAO.userIsAdmin(username);
 //    }    
     
-	public void addGroup(String username, Boolean isAdmin) {
-		username = username + "!!!";
-	}    
+//	public void addGroup(String username, Boolean isAdmin) {
+//		username = username + "!!!";
+//	}    
 }
 
 

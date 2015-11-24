@@ -70,7 +70,7 @@
 }
 
 select {
-	width: 200px;
+	width: 90%;
 }
 </style>
 
@@ -111,10 +111,10 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 	</p>
 
 	<p style="text-align: right">
-		<a href="j_spring_security_logout" id="button-icon"
+		<a href="<%=request.getContextPath()%>/changePassword" id="button-icon"
 			class="ui-state-default ui-corner-all"><span
-			class="ui-icon ui-icon-close"></span> <spring:message
-				code="label.user_password" /></a>
+			class="ui-icon ui-icon-wrench"></span> <spring:message
+				code="label.chPwd_passwdChange" /></a>
 	</p>
 
 	<c:if test="${not empty IsAdmin}">
