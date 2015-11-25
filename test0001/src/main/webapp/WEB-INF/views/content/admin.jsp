@@ -119,7 +119,7 @@ select {
 				"<div>Имя " + $('#username').val()
 						+ " уже используется. Обновить?</div>").dialog({
 			width : 500,
-			height : 150,
+			//height : 150,
 			buttons : {
 				"Да" : function() { // обновляем данные по username
 					frm.submit();
@@ -145,7 +145,7 @@ select {
 	</p>
 
 	<form:form method="post" action="addUser" modelAttribute="user"
-		class="box users" onsubmit="checkUserName(this);return false;">
+		class="box users" onsubmit="checkUserName(this);return false;" style="border: 0px">
 
 
 		<div class="addressBook">

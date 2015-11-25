@@ -37,12 +37,6 @@
 
 
 <script>
-/* 	function changePassword(frm) {
-		alert('Submit');
-		frm.submit();
-		return false;
-	};
- */
 	function checkOldPassword(passwd, check_mode) {
 		var checkResult = "999";
 		$.ajax({

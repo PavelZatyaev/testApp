@@ -61,7 +61,6 @@
 				"<div>Имя " + $('#username').val() + " == " + checkResult
 						+ " уже используется. Необходимо выбрать другое имя.</div>").dialog({
 			width : 500,
-			height : 150,
 			buttons : {
 				"Ok" : function() {
 					$(this).dialog("close");
@@ -81,46 +80,45 @@
 	</p>
 
 	<form:form method="post" action="addUserReg" modelAttribute="user"
-		class="box users" onsubmit="checkUserName(this);return false;">
+		class="box changePassword"
+		onsubmit="checkUserName(this);return false;">
 
 		<fieldset class="boxBody">
-			<div class="layer1">
 
-				<form:label path="FIO">
-					<spring:message code="label.user_FIO" />
-				</form:label>
-				<form:input path="FIO" id="FIO" />
-				<form:errors path="FIO" cssClass="error" />
+			<form:label path="FIO">
+				<spring:message code="label.user_FIO" />
+			</form:label>
+			<form:input path="FIO" id="FIO" />
+			<form:errors path="FIO" cssClass="error" />
 
-				<form:label path="email">
-					<spring:message code="label.user_email" />
-				</form:label>
-				<form:input path="email" id="email" />
-				<form:errors path="email" cssClass="error" />
+			<form:label path="email">
+				<spring:message code="label.user_email" />
+			</form:label>
+			<form:input path="email" id="email" />
+			<form:errors path="email" cssClass="error" />
 
-				<form:label path="username">
-					<spring:message code="label.user_name" />
-				</form:label>
-				<form:input path="username" id="username" />
+			<form:label path="username">
+				<spring:message code="label.user_name" />
+			</form:label>
+			<form:input path="username" id="username" />
 
-				<form:errors path="username" cssClass="error" />
+			<form:errors path="username" cssClass="error" />
 
-				<form:label path="password">
-					<spring:message code="label.user_password" />
-				</form:label>
-				<form:input path="password" id="password" />
-				<form:errors path="password" cssClass="error" />
+			<form:label path="password">
+				<spring:message code="label.user_password" />
+			</form:label>
+			<form:input path="password" id="password" />
+			<form:errors path="password" cssClass="error" />
 
-				<input type="submit" id='button'
-					value="<spring:message code="label.adduser"/>" />
-
-			</div>
 		</fieldset>
+		<footer> <input type="submit" id='button'
+			value="<spring:message code="label.adduser"/>" /> </footer>
+
 	</form:form>
 	<script>
 $( "#button" ).button();
 $( "#button-icon" ).button();
 </script>
-	
+
 </body>
 </html>

@@ -10,6 +10,19 @@
 		</layout>
 	</appender>
 
+	<appender name="FILE_LOG" class="org.apache.log4j.FileAppender">
+
+<!-- 		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+ -->
+		<param name="file" value="${log}/pzlog.log" />
+		<param name="immediateFlush" value="true" />
+		<param name="threshold" value="debug" />
+		<param name="append" value="false" />
+	</appender>
+
+
 	<!-- Application Loggers -->
 	<logger name="ru.bezslovarya.test_task">
 		<level value="debug" />
@@ -43,18 +56,14 @@
 	<!--org.hibernate.SQL logger -->
 	<logger name="org.hibernate">
 		<level value="debug" />
+		<appender-ref ref="FILE_LOG"/>
+		
 	</logger>
-
-
-
-
 
 	<!-- Root Logger -->
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
 	</root>
-
-
 
 </log4j:configuration>

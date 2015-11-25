@@ -50,10 +50,6 @@ public class UserServiceImpl implements UserService {
 		return -1;
     } 
     
-//    public String getUserFIO(Integer id) {
-//    	return userDAO.getUserFIO(id);
-//    }
-
     @Autowired	
 	private GroupMemberService groupMemberService;
     
@@ -73,13 +69,11 @@ public class UserServiceImpl implements UserService {
     	userDAO.removeUser(id);
     }
     
-//    public Boolean userIsAdmin(String username) {
-//    	return groupMemberDAO.userIsAdmin(username);
-//    }    
+    // заглушка для проверки роли 
+    public void adminOnly() {
+    	return;
+    }
     
-//	public void addGroup(String username, Boolean isAdmin) {
-//		username = username + "!!!";
-//	}    
 }
 
 

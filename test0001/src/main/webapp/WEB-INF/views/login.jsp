@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -47,10 +47,8 @@
 </head>
 
 <body>
-	<form method="POST"
-		action="<%=request.getContextPath()%>/j_spring_security_check"
-		class="box login" name="login_form" id="login_form">
-
+	<form:form method="POST" action="j_spring_security_check"
+		name="login_form" id="login_form" class="box changePassword">
 		<fieldset class="boxBody">
 			<c:if test="${not empty user}">
 				<label id="autoLogin">autoLogin...</label>
@@ -78,8 +76,6 @@
 			<c:if test="${empty error}">
 				<label>&nbsp;</label>
 			</c:if>
-			
-
 		</fieldset>
 
 		<footer>
@@ -99,7 +95,7 @@
 		</div>
 		</footer>
 
-	</form>
+	</form:form>
 
 	<script>
 $( "#button" ).button();

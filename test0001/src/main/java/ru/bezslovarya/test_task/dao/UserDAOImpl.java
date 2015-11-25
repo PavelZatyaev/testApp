@@ -77,9 +77,12 @@ public class UserDAOImpl implements UserDAO {
 	public void addUser(User user) {
 		Integer id = existUser(user);
 		if (id > 0) {
-			removeUser(id); // удаление из групп на триггере
+			//removeUser(id); // удаление из групп на триггере
+			user.setId(id);
+			sessionFactory.getCurrentSession().merge(user);
+		} else {
+			sessionFactory.getCurrentSession().save(user);
 		}
-		sessionFactory.getCurrentSession().save(user);
 		sessionFactory.getCurrentSession().flush();
 	}
 	

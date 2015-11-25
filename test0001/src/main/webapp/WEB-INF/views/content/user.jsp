@@ -64,13 +64,13 @@
 	float: left;
 	margin: 0 4px;
 }
-
+/*
 .fakewindowcontain .ui-widget-overlay {
 	position: absolute;
 }
-
+*/
 select {
-	width: 90%;
+	width: 300px;
 }
 </style>
 
@@ -132,8 +132,8 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 	</h2>
 	<div id="tabs">
 		<ul>
-			<li><a href="#tabs-1">Сообщение</a></li>
-			<li><a href="#tabs-2">Адресная книга</a></li>
+			<li><a href="#tabs-1"><spring:message code="label.user_message" /></a></li>
+			<li><a href="#tabs-2"><spring:message code="label.user_addressBook" /></a></li>
 		</ul>
 		<div id="tabs-1">
 			<div class="addressBook">
@@ -235,7 +235,7 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 				</c:if>
 
 				<div class="userList">
-					<h4>Общий список пользователей</h4>
+					<h4><spring:message code="label.user_commonList" /></h4>
 					<c:if test="${!empty allAddressList}">
 						<table id="userList" class="display" cellspacing="0" width="100%">
 							<thead>
@@ -263,7 +263,7 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 				</div>
 
 				<div class="userList">
-					<h4>Адресная книга</h4>
+					<h4><spring:message code="label.user_addressBook" /></h4>
 					<c:if test="${!empty addressList}">
 						<table id="selectedUserList" class="display" cellspacing="0"
 							width="100%">

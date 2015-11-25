@@ -9,7 +9,6 @@ import ru.bezslovarya.test_task.domain.User;
 
 public interface UserService {
 
-	//@Secured("ROLE_ADMIN")
 	public List<User> listUser();
 
 	public Map<Integer, String> mapUserName(String username);
@@ -17,13 +16,10 @@ public interface UserService {
 	public Integer getUserID();
 	public String getUserPassword(User user);	
 	
-//	public String getUserFIO(Integer id);
-	
 	public void addUser(User user);
 	
 	public void removeUser(Integer id);
 	
-//	public void addGroup(String username, Boolean isAdmin);
-	
-//	public Boolean userIsAdmin(String username);
+	@Secured("ROLE_ADMIN")	
+	public void adminOnly();
 }

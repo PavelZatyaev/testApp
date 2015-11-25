@@ -102,25 +102,6 @@ public class HomeController {
 		return "1";
 	}
 	
-	
-/*	///////////////////////////////////////////////////////////////////////////////////////////////////
-	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
-	public String setNewPassword(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
-
-		if (result.hasErrors()) {
-			model.addAttribute("userList", listUserEx());
-			return "/content/admin";
-		}
-
-		user.setEnabled(true);
-		user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(11)));
-
-		userService.addUser(user);
-
-		return "redirect:/admin";
-	}
-	
-*/
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
 	public ModelAndView accesssDenied(Principal user) {
@@ -143,6 +124,8 @@ public class HomeController {
 	public String mainPage(Model model) {
 
 		// !!! logger.info(process.getMessage());
+		logger.info("log message");
+
 
 		Integer userID = userService.getUserID();
 
@@ -172,7 +155,9 @@ public class HomeController {
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminPage(Model model) {
-
+		
+		userService.adminOnly();
+		
 		model.addAttribute("userList", listUserEx());
 		model.addAttribute("user", new User());
 
