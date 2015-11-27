@@ -30,17 +30,11 @@
 	<!-- Настраивает управление транзакциями с помощью аннотации @Transactional -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-	<!-- <tx:advice id="txAdvice"> <tx:attributes> <tx:method name="*" propagation="REQUIRED" 
-		/> </tx:attributes> </tx:advice> -->
-	<!-- <aop:config> <aop:advisor pointcut="execution(* ru.bezslovarya.*.*(..))" 
-		advice-ref="txAdvice" /> </aop:config> -->
 	<!-- Менеджер транзакций -->
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
-
 
 	<!-- Настройки фабрики сессий Хибернейта -->
 	<bean id="sessionFactory"
@@ -66,6 +60,4 @@
 			</props>
 		</property>
 	</bean>
-
-
 </beans>

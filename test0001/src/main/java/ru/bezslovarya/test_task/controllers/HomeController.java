@@ -1,8 +1,8 @@
 package ru.bezslovarya.test_task.controllers;
 
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Collection;
+//import java.util.ArrayList;
+//import java.util.Collection;
 import java.util.Date;
 //import java.util.HashMap;
 import java.util.List;
@@ -17,14 +17,14 @@ import ru.bezslovarya.test_task.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.AccessDecisionManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
+//import org.springframework.security.access.AccessDecisionManager;
+//import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+//import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.provisioning.UserDetailsManager;
+//import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -207,7 +207,7 @@ public class HomeController {
 //		return "/content/user";
 	}
 	
-	private Collection<GrantedAuthority> getAuthorities() {
+/*	private Collection<GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
         GrantedAuthority grantedAuthority = new GrantedAuthority() {
             public String getAuthority() {
@@ -217,7 +217,7 @@ public class HomeController {
         grantedAuthorities.add(grantedAuthority);
         return grantedAuthorities;
     }	
-
+*/
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error) {

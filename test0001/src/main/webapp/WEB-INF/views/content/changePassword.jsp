@@ -162,7 +162,7 @@
 		<p style="text-align: right">
 			<input type="submit" id='button'
 				value="<spring:message code="label.chPwd_passwdSend"/>" /> <input
-				action="action" type="button" id='button00'
+				type="button" id='button00'
 				value="<spring:message code="label.chPwd_passwdCancel"/>"
 				onclick="history.go(-1);" />
 		</p>

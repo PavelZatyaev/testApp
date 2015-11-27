@@ -26,15 +26,35 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<context:component-scan base-package="ru.bezslovarya.test_task.controllers" />
+<context:component-scan base-package="ru.bezslovarya.test_task" />
+
+<!-- 	<context:component-scan base-package="ru.bezslovarya.test_task.controllers" />
 	<context:component-scan base-package="ru.bezslovarya.test_task.processors" />
 	<context:component-scan base-package="ru.bezslovarya.test_task.services" />
 	<context:component-scan base-package="ru.bezslovarya.test_task.dao" />
+ -->
 
 
 	<security:global-method-security
 		secured-annotations="enabled" pre-post-annotations="enabled"
 		jsr250-annotations="enabled" />
+		
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:messages" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+	<bean id="localeChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="lang" />
+	</bean>
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="en" />
+	</bean>
+		
 
 
 </beans>

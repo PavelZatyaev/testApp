@@ -2,7 +2,7 @@ package ru.bezslovarya.test_task.services;
 
 import java.util.List;
 
-import org.springframework.security.access.annotation.Secured;
+//import org.springframework.security.access.annotation.Secured;
 
 import ru.bezslovarya.test_task.domain.Message;
 

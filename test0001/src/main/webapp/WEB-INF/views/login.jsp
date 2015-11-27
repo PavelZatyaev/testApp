@@ -64,9 +64,15 @@
 			</c:if>
 
 			<c:if test="${empty user}">
-				<label> Username </label>
+			
+			<span style="float: right"> 
+				<a href="?lang=en">en</a> 
+				<a href="?lang=ru">ru</a>
+			</span>
+			
+				<label> <spring:message code="label.login" /> </label>
 				<input type='text' name='user_login' value='admin' />
-				<label> Password </label>
+				<label> <spring:message code="label.password" /> </label>				
 				<input type='password' name='password_login' value='121212' />
 			</c:if>
 
@@ -82,14 +88,16 @@
 		<div class="addressBook">
 			<div style="float: left; width: 50%;">
 				<input name="_spring_security_remember_me" id="remember_me"
-					type="checkbox" /> <label for="remember_me">Remember</label>
+					type="checkbox" /> <label for="remember_me"><spring:message code="label.remember" /></label>
+					
 				<p style="text-align: left">
-					<a href="<%=request.getContextPath()%>/reg"> Sign In </a>
+					<a href="<%=request.getContextPath()%>/reg"><spring:message code="label.registration" /></a>
 				</p>
 			</div>
 			<div style="float: left; text-align: right; width: 50%;">
 			<p style="text-align: right">
-				<input type="submit" value="Вход" id="button" />
+				<input type="submit" value="<spring:message code="label.login" />" id="button" />
+				
 				</p>
 			</div>
 		</div>

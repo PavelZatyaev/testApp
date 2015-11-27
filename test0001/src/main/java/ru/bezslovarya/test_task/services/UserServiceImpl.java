@@ -21,9 +21,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDAO userDAO;
     
-//	@Autowired
-//    private GroupMemberDAO groupMemberDAO;
-    
     @Transactional
     public List<User> listUser() {
          return userDAO.listUser();

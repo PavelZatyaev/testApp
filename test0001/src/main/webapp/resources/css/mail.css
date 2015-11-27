@@ -39,7 +39,7 @@ html, div, fieldset, label	 {
 
 .box {
 	background: #fefefe;
-	border: 1px solid #ffebcc; /*#C3D4DB;*/
+	border: 1px solid #ffebcc;
 	border-top: 1px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -63,11 +63,10 @@ html, div, fieldset, label	 {
 
 
 .box footer {
-	background: #ffebcc; /*#eff4f6;*/
+	background: #ffebcc;
 	border-top: 1px solid #fff;
 	padding: 22px 26px;
 	overflow: hidden;
-	/*height: 60px;*/
 }
 
 .box footer label {
@@ -140,3 +139,11 @@ html, div, fieldset, label	 {
 	margin-top: -8px;
 }
 
+footer#main {
+	position: fixed;
+	left: 0;
+	bottom: 10px;
+	text-align: center;
+	font: normal 11px/16px Arial, Helvetica, sans-serif;
+	width: 100%;
+}

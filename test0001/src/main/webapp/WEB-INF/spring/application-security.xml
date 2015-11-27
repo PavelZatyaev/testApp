@@ -8,18 +8,16 @@
 	http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
 
-
-
-	<http pattern="/reg" security="none" />
+ 	<http pattern="/reg" security="none" />
 	<http pattern="/checkUserName_" security="none" />
 
+<!-- 	<beans:import resource="/WEB-INF/spring/mysql-datasource.xml" /> -->
 
 	<http auto-config="true">
 
 		<remember-me data-source-ref="dataSource" />
 
 		<access-denied-handler error-page="/accessDenied" />
-
 
 		<intercept-url pattern="/user" access="ROLE_USER" />
 		<intercept-url pattern="/admin" access="ROLE_ADMIN, ROLE_USER" />

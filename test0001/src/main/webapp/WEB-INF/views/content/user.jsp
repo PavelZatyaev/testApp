@@ -111,8 +111,8 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 	</p>
 
 	<p style="text-align: right">
-		<a href="<%=request.getContextPath()%>/changePassword" id="button-icon"
-			class="ui-state-default ui-corner-all"><span
+		<a href="<%=request.getContextPath()%>/changePassword"
+			id="button-icon" class="ui-state-default ui-corner-all"><span
 			class="ui-icon ui-icon-wrench"></span> <spring:message
 				code="label.chPwd_passwdChange" /></a>
 	</p>
@@ -122,8 +122,8 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 		<p style="text-align: right">
 			<a href="<%=request.getContextPath()%>/admin" id="button-icon"
 				class="ui-state-default ui-corner-all"><span
-				class="ui-icon ui-icon-wrench"></span>
-			<spring:message code="label.user_admin" /></a>
+				class="ui-icon ui-icon-wrench"></span> <spring:message
+					code="label.user_admin" /></a>
 		</p>
 	</c:if>
 
@@ -132,8 +132,10 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 	</h2>
 	<div id="tabs">
 		<ul>
-			<li><a href="#tabs-1"><spring:message code="label.user_message" /></a></li>
-			<li><a href="#tabs-2"><spring:message code="label.user_addressBook" /></a></li>
+			<li><a href="#tabs-1"><spring:message
+						code="label.user_message" /></a></li>
+			<li><a href="#tabs-2"><spring:message
+						code="label.user_addressBook" /></a></li>
 		</ul>
 		<div id="tabs-1">
 			<div class="addressBook">
@@ -146,7 +148,9 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 						</form:label>
 
 						<form:select path="userID" id="selectmenu" width='300px'>
-							<form:option value="0"> --SELECT--</form:option>
+							<form:option value="0">
+								<spring:message code="label.user_select" />
+							</form:option>
 							<form:options items="${userMap}"></form:options>
 						</form:select>
 						<form:errors path="userID" cssClass="error" />
@@ -235,7 +239,9 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 				</c:if>
 
 				<div class="userList">
-					<h4><spring:message code="label.user_commonList" /></h4>
+					<h4>
+						<spring:message code="label.user_commonList" />
+					</h4>
 					<c:if test="${!empty allAddressList}">
 						<table id="userList" class="display" cellspacing="0" width="100%">
 							<thead>
@@ -248,13 +254,14 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 								<c:forEach items="${allAddressList}" var="recipient">
 									<tr>
 										<td>${recipient.FIO}</td>
-										<td><a href="addUser2AB/${recipient.id}">
-												<ul id="icons" class="ui-widget ui-helper-clearfix">
-													<li class="ui-state-default ui-corner-all"
-														title="Добавить в список"><span
-														class="ui-icon ui-icon-plusthick"></span></li>
-												</ul>
-										</a></td>
+										<td>
+											<ul id="icons" class="ui-widget ui-helper-clearfix">
+												<li class="ui-state-default ui-corner-all"><a
+													href="addUser2AB/${recipient.id}"> <span
+														class="ui-icon ui-icon-plusthick"></span>
+												</a></li>
+											</ul>
+										</td>
 									</tr>
 								</c:forEach>
 							<tbody>
@@ -263,7 +270,9 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 				</div>
 
 				<div class="userList">
-					<h4><spring:message code="label.user_addressBook" /></h4>
+					<h4>
+						<spring:message code="label.user_addressBook" />
+					</h4>
 					<c:if test="${!empty addressList}">
 						<table id="selectedUserList" class="display" cellspacing="0"
 							width="100%">
@@ -277,14 +286,14 @@ function showMsg(msg_sender, msg_date, msg_subj, msg_text) {
 								<c:forEach items="${addressList}" var="recipient">
 									<tr>
 										<td>${recipient.FIO}</td>
-										<td><a class="btnLogin"
-											href="delUserFromAB/${recipient.id}">
-												<ul id="icons" class="ui-widget ui-helper-clearfix">
-													<li class="ui-state-default ui-corner-all"
-														title="Удалить из списка"><span
-														class="ui-icon ui-icon-minusthick"></span></li>
-												</ul>
-										</a></td>
+										<td>
+											<ul id="icons" class="ui-widget ui-helper-clearfix">
+												<li class="ui-state-default ui-corner-all"><a
+													href="delUserFromAB/${recipient.id}"> <span
+														class="ui-icon ui-icon-minusthick"></span>
+												</a></li>
+											</ul>
+										</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -315,6 +324,7 @@ $( "#autocomplete" ).autocomplete({
 
 $( "#button" ).button();
 $( "#button-icon" ).button();
+
 $( "#radioset" ).buttonset();
 
 $( "#tabs" ).tabs();
