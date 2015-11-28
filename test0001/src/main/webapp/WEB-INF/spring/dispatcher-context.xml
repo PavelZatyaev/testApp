@@ -38,6 +38,14 @@
 	<security:global-method-security
 		secured-annotations="enabled" pre-post-annotations="enabled"
 		jsr250-annotations="enabled" />
+	
+ 	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*" />
+			<ref bean="localeChangeInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+ 	
 		
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
