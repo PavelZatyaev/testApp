@@ -8,7 +8,7 @@
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
-		<java-version>1.7</java-version>
+		<java-version>1.8</java-version>
 
 		<!-- <org.springframework-version>4.0.6.RELEASE</org.springframework-version> 
 			<org.springframework.security-version>3.2.5.RELEASE</org.springframework.security-version> -->
@@ -23,6 +23,11 @@
 		<org.hibernate-ann.version>3.5.6-Final</org.hibernate-ann.version>
 		<org.hibernate-core.version>3.5.6-Final</org.hibernate-core.version>
 		<org.hibernate-comm-ann.version>3.2.0.Final</org.hibernate-comm-ann.version>
+		
+
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
 
 	</properties>
 	<dependencies>
@@ -256,6 +261,17 @@
 					<mainClass>org.test.int1.Main</mainClass>
 				</configuration>
 			</plugin>
-		</plugins>
+			
+<!--  			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<warSourceDirectory>webapp</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<warName>ROOT</warName>
+				</configuration>
+			</plugin>
+ -->						
+ 		</plugins>
 	</build>
 </project>

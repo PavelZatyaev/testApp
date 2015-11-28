@@ -109,9 +109,9 @@ public class HomeController {
 		ModelAndView model = new ModelAndView();
 
 		if (user != null) {
-			model.addObject("errorMsg", user.getName() + " у вас нет доступа к этой странице!");
+			model.addObject("errorMsg", user.getName() + ": u don't have access to this page!");
 		} else {
-			model.addObject("errorMsg", "У вас нет доступа к этой странице!");
+			model.addObject("errorMsg", "U don't have access to this page!");
 		}
 
 		model.setViewName("/content/accessDenied");
