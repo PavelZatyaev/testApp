@@ -49,12 +49,6 @@ import ru.bezslovarya.test_task.services.GroupMemberService;
 @Controller
 public class HomeController {
 
-	// @Autowired
-	// private AccessDecisionManager accessDecisionManager;
-
-	// @Autowired
-	// private ProcessInterface process;
-
 	@Autowired
 	private MessageService messageService;
 	
@@ -193,31 +187,8 @@ public class HomeController {
 		
 		return "/login";
 
-
-//	
-//		Authentication auth = 
-//				  new UsernamePasswordAuthenticationToken(user.getUsername(), hashpw, getAuthorities());
-//		SecurityContextHolder.getContext().setAuthentication(auth);	
-//
-//
-//		model.addAttribute("message", new Message());
-//		model.addAttribute("messageList", messageService.listMessage(user.getId()));
-//		model.addAttribute("userMap", userService.mapUserName(user.getUsername()));
-//		
-//		return "/content/user";
 	}
 	
-/*	private Collection<GrantedAuthority> getAuthorities() {
-        Collection<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-        GrantedAuthority grantedAuthority = new GrantedAuthority() {
-            public String getAuthority() {
-                return "ROLE_USER";
-            }
-        }; 
-        grantedAuthorities.add(grantedAuthority);
-        return grantedAuthorities;
-    }	
-*/
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error) {
@@ -246,6 +217,9 @@ public class HomeController {
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
 	public String addUser(@Valid @ModelAttribute("user") User user, BindingResult result, Model model) {
 
+		if (user.getUsername().toLowerCase().equals("admin"))
+			return "redirect:/admin";
+		
 		if (result.hasErrors()) {
 			model.addAttribute("userList", listUserEx());
 			return "/content/admin";
@@ -332,7 +306,8 @@ public class HomeController {
 	///////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping("/deleteUser/{userId}")
 	public String deleteUser(@PathVariable("userId") Integer userId) {
-		userService.removeUser(userId);
+		if (userId != 1)
+		   userService.removeUser(userId);
 		return "redirect:/admin";
 	}
 
