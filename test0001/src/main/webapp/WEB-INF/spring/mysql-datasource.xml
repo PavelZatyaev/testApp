@@ -13,22 +13,17 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-	<!-- <?xml version="1.0" encoding="UTF-8"?> -->
-	<!-- <beans xmlns="http://www.springframework.org/schema/beans" -->
-	<!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" -->
-	<!-- xmlns:tx="http://www.springframework.org/schema/tx" -->
-	<!-- xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"> -->
-
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/test0001" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+
+<!-- 		<property name="url" value="jdbc:mysql://localhost:3306/test0001" /> -->
+<!-- 		<property name="username" value="root" /> -->
+<!-- 		<property name="password" value="root" /> -->
 		
-<!-- 		<property name="url" value="jdbc:mysql://127.13.1.130:3306/test0001" /> -->
-<!-- 		<property name="username" value="adminbQ4AZHE" /> -->
-<!-- 		<property name="password" value="gT2ArxJ6alPu" /> -->
+		<property name="url" value="jdbc:mysql://127.13.1.130:3306/test0001" />
+		<property name="username" value="adminbQ4AZHE" />
+		<property name="password" value="gT2ArxJ6alPu" />
 	</bean>
 
 	<!-- Настраивает управление транзакциями с помощью аннотации @Transactional -->
